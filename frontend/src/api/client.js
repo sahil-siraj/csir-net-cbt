@@ -105,6 +105,10 @@ export const api = {
     request(`/api/tests/${testId}/submit`, {
       method: 'POST',
     }),
+  deleteTest: (testId) =>
+    request(`/api/tests/${testId}`, {
+      method: 'DELETE',
+    }),
 
   getAnalytics: () => request('/api/analytics/overview'),
   toggleBookmark: (payload) =>

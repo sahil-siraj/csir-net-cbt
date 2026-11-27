@@ -781,3 +781,43 @@ def submit_test(
         (test_id, user_id),
     )
     return _build_test_payload(completed_test, user_id)
+
+
+@router.delete("/{test_id}")
+def delete_test(
+    test_id: int,
+    current_user: dict[str, Any] = Depends(get_current_user),
+):
+    user_id = int(current_user["id"])
+    test = query_one(
+        "SELECT id FROM mock_tests WHERE id = ? AND user_id = ?",
+        (test_id, user_id),
+    )
+    if not test:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Test not found",
+        )
+
+    with get_connection() as conn:
+        try:
+            conn.execute(
+                "DELETE FROM test_responses WHERE test_id = ?",
+                (test_id,),
+            )
+            conn.execute(
+                "DELETE FROM mock_tests WHERE id = ? AND user_id = ?",
+                (test_id, user_id),
+            )
+            conn.commit()
+        except Exception as exc:
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Failed to delete test",
+            ) from exc
+
+    return {"status": "deleted", "test_id": test_id}

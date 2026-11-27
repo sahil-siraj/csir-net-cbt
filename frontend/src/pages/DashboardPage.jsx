@@ -16,6 +16,8 @@ import {
   Play,
   SlidersHorizontal,
   Target,
+  Trash2,
+  X,
 } from 'lucide-react'
 import {
   Bar,
@@ -70,6 +72,8 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [launching, setLaunching] = useState('')
+  const [deleteTarget, setDeleteTarget] = useState(null)
+  const [deletingTestId, setDeletingTestId] = useState(null)
 
   // Full Mock builder state
   const [fullMockSource, setFullMockSource] = useState('mixed')
@@ -178,6 +182,35 @@ export default function DashboardPage() {
       setError(err.message || 'Could not start test')
     } finally {
       setLaunching('')
+    }
+  }
+
+  const handleConfirmDeleteTest = async () => {
+    if (!deleteTarget || deletingTestId !== null) return
+    const targetId = deleteTarget.id
+    setError('')
+    setDeletingTestId(targetId)
+    try {
+      await api.deleteTest(targetId)
+      setAnalytics((prev) =>
+        prev
+          ? {
+              ...prev,
+              recent_tests: (prev.recent_tests || []).filter((t) => t.id !== targetId),
+            }
+          : prev
+      )
+      setDeleteTarget(null)
+      const [metaRes, analyticsRes] = await Promise.all([
+        api.getTestsMeta(),
+        api.getAnalytics(),
+      ])
+      setMeta(metaRes)
+      setAnalytics(analyticsRes)
+    } catch (err) {
+      setError(err.message || 'Failed to delete test')
+    } finally {
+      setDeletingTestId(null)
     }
   }
 
@@ -824,23 +857,38 @@ export default function DashboardPage() {
                         {formatDate(t.started_at)}
                       </td>
                       <td className="px-6 py-3.5 text-right">
-                        {t.status === 'in_progress' ? (
+                        <div className="inline-flex items-center justify-end gap-2">
+                          {t.status === 'in_progress' ? (
+                            <button
+                              type="button"
+                              onClick={() => navigate(`/test/${t.id}`)}
+                              className="rounded-lg bg-amber-500 hover:bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors"
+                            >
+                              Resume
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => navigate(`/review/${t.id}`)}
+                              className="rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 px-3 py-1.5 text-xs font-semibold text-indigo-700 dark:text-indigo-300 transition-colors"
+                            >
+                              View Scorecard & Review
+                            </button>
+                          )}
                           <button
                             type="button"
-                            onClick={() => navigate(`/test/${t.id}`)}
-                            className="rounded-lg bg-amber-500 hover:bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors"
+                            disabled={deletingTestId === t.id}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setDeleteTarget(t)
+                            }}
+                            title="Delete test attempt"
+                            aria-label={`Delete ${t.title}`}
+                            className="rounded-lg border border-slate-200 dark:border-slate-700 p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:border-rose-200 dark:hover:border-rose-800 hover:bg-rose-50 dark:hover:bg-rose-950/40 disabled:opacity-45 transition-colors"
                           >
-                            Resume
+                            <Trash2 className="h-4 w-4" />
                           </button>
-                        ) : (
-                          <button
-                            type="button"
-                            onClick={() => navigate(`/review/${t.id}`)}
-                            className="rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 px-3 py-1.5 text-xs font-semibold text-indigo-700 dark:text-indigo-300 transition-colors"
-                          >
-                            View Scorecard & Review
-                          </button>
-                        )}
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -854,6 +902,64 @@ export default function DashboardPage() {
           )}
         </section>
       </main>
+
+      {deleteTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4">
+          <div className="w-full max-w-md rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold">
+                <Trash2 className="h-4 w-4 text-rose-500" />
+                <span>Delete Test Attempt</span>
+              </div>
+              <button
+                type="button"
+                disabled={deletingTestId !== null}
+                onClick={() => setDeleteTarget(null)}
+                className="rounded-lg p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 disabled:opacity-45"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="p-5 space-y-4">
+              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 px-3.5 py-2.5 text-xs">
+                <div className="font-semibold text-slate-900 dark:text-white">
+                  {deleteTarget.title}
+                </div>
+                <div className="text-slate-500 dark:text-slate-400 mt-0.5">
+                  {deleteTarget.total_questions} Questions ·{' '}
+                  {deleteTarget.status === 'completed'
+                    ? `Score: ${deleteTarget.total_score} / ${deleteTarget.max_score}`
+                    : 'In Progress'}
+                </div>
+              </div>
+
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Delete this test attempt? Your score will be removed from analytics and its questions will return to your unseen pool.
+              </p>
+
+              <div className="flex items-center justify-end gap-2 pt-1">
+                <button
+                  type="button"
+                  disabled={deletingTestId !== null}
+                  onClick={() => setDeleteTarget(null)}
+                  className="rounded-xl px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-45"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  disabled={deletingTestId !== null}
+                  onClick={handleConfirmDeleteTest}
+                  className="rounded-xl bg-rose-600 hover:bg-rose-700 disabled:opacity-50 px-4 py-2 text-sm font-semibold text-white transition-colors"
+                >
+                  {deletingTestId !== null ? 'Deleting...' : 'Delete Test'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
