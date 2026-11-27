@@ -1,0 +1,36 @@
+# Secrets & Environment
+.env
+.env.*
+!.env.example
+.env.turso
+
+# Local SQLite Databases & Backups
+csir_net.db
+csir_net.db-wal
+csir_net.db-shm
+csir_net.db.bak
+*.db
+*.db-wal
+*.db-shm
+*.db.bak
+*.bak
+
+# Reports & Generated Artifacts
+*_report.json
+
+# Python / Virtual Environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Frontend Dependencies & Build Artifacts
+frontend/node_modules/
+frontend/dist/
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db

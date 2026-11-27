@@ -1,0 +1,1 @@
+When executing Python commands, ALWAYS use `./.venv/bin/python` (on Linux/macOS) or `.\.venv\Scripts\python.exe` (on Windows) instead of the global `python` command.

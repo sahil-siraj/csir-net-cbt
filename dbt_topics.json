@@ -1,0 +1,962 @@
+[
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Primary and secondary sequence databases, data retrieval and formats",
+    "key_concepts": [
+      "GenBank, EMBL-EBI, DDBJ, RefSeq archival and curated databases",
+      "UniProtKB architecture (Swiss-Prot curated vs TrEMBL unreviewed)",
+      "Sequence file formats (FASTA, GenBank, EMBL, GFF3) and accession schema",
+      "Pattern and motif databases (PROSITE, PRINTS, Pfam, SMART, InterPro)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Pairwise sequence alignment and dynamic programming algorithms",
+    "key_concepts": [
+      "Needleman-Wunsch algorithm for global alignment and traceback matrix",
+      "Smith-Waterman algorithm for local alignment and zero-reset condition",
+      "Scoring matrices: PAM (Markov model) vs BLOSUM (observed blocks $s(i,j) = \\frac{1}{\\lambda}\\ln\\frac{q_{ij}}{p_i p_j}$)",
+      "Affine gap penalty models: gap opening penalty $\\gamma$ and gap extension penalty $\\sigma$"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Heuristic database searching and statistical significance (BLAST & FASTA)",
+    "key_concepts": [
+      "BLAST heuristic lookup: word size $W$, threshold $T$, two-hit seed extension",
+      "BLAST programs: blastn, blastp, blastx, tblastn, tblastx, PSI-BLAST",
+      "Statistical parameters: Raw score $S$, Bit score $S' = \\frac{\\lambda S - \\ln K}{\\ln 2}$, E-value ($E = K m n e^{-\\lambda S}$)",
+      "FASTA algorithm: hashing, ktup size, diagonal optimization, band Smith-Waterman"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Multiple sequence alignment (MSA) and profile hidden Markov models",
+    "key_concepts": [
+      "Progressive alignment methods (ClustalW, Clustal Omega) and guide tree heuristics",
+      "Iterative alignment algorithms (MUSCLE, MAFFT) and consistency scoring (T-Coffee)",
+      "Profile Hidden Markov Models (profile HMMs: match, insert, delete states, HMMER)",
+      "Identification of conserved catalytic residues, sequence logos, and information content"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Molecular phylogenetics, tree topology and reconstruction methods",
+    "key_concepts": [
+      "Phylogenetic tree types: rooted vs unrooted, cladograms, phylograms, ultrametric trees",
+      "Distance-based tree construction: UPGMA (constant rate assumption) vs Neighbor-Joining",
+      "Character-based tree construction: Maximum Parsimony (Fitch/Sankoff) and Maximum Likelihood",
+      "Statistical tree assessment: Bootstrap resampling ($FBP$), jackknife, consensus trees"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Comparative genomics, gene orthology and evolutionary selection",
+    "key_concepts": [
+      "Distinction among orthologs, in-paralogs, out-paralogs, and xenologs",
+      "Synteny mapping, microsynteny conservation, and whole-genome duplication (WGD)",
+      "Horizontal gene transfer (HGT) detection via atypical GC content and codon usage bias",
+      "Selection pressure metrics: nonsynonymous to synonymous substitution ratio $d_N/d_S$ ($\\omega$)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Genome annotation, variant effect prediction and functional networks",
+    "key_concepts": [
+      "Ab initio prokaryotic (Glimmer) and eukaryotic (GENSCAN, AUGUSTUS) gene finders",
+      "Gene Ontology (GO) functional hierarchies: Biological Process, Molecular Function, Cellular Component",
+      "In silico variant effect prediction: SIFT, PolyPhen-2, CADD scores for missense mutations",
+      "Transposable elements and repetitive sequence annotation using RepeatMasker"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Protein secondary and tertiary structure prediction and validation",
+    "key_concepts": [
+      "Secondary structure prediction: Chou-Fasman propensity, GOR information theory, neural nets (PSIPRED)",
+      "Comparative/homology modeling steps: template selection, alignment, coordinate transfer, loop modeling",
+      "Fold recognition, protein threading, and ab initio fragment assembly (Rosetta)",
+      "Stereochemical quality validation: Ramachandran plot criteria (PROCHECK), QMEAN, Verify3D"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "AI-based structural biology and AlphaFold models",
+    "key_concepts": [
+      "AlphaFold2 architecture: Evoformer multi-track representation and Invariant Point Attention (IPA)",
+      "Confidence metrics: predicted Local Distance Difference Test (pLDDT) and Predicted Aligned Error (PAE)",
+      "AlphaFold-Multimer for protein-protein complex interfaces and stoichoimetric modeling",
+      "Structural bioinformatics applications: intrinsically disordered regions (IDRs) vs globular domains"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Molecular mechanics, force fields and potential energy surfaces",
+    "key_concepts": [
+      "Classical force field empirical functions: bond stretching, angle bending, dihedral torsions",
+      "Non-bonded potentials: Lennard-Jones 12-6 dispersion-repulsion and Coulombic electrostatics",
+      "Standard biomolecular force fields: AMBER, CHARMM, OPLS-AA, GROMOS parameters",
+      "Energy minimization algorithms: Steepest Descent, Conjugate Gradient, Newton-Raphson"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Molecular dynamics simulations and conformational trajectory analysis",
+    "key_concepts": [
+      "Numerical integration of Newton's equations: Verlet, Velocity Verlet, Leapfrog algorithms",
+      "Thermostats and barostats in $NVT$ and $NPT$ thermodynamic ensembles (Nosé-Hoover, Parrinello-Rahman)",
+      "Structural trajectory metrics: RMSD, RMSF, radius of gyration ($R_g$), solvent accessible surface area (SASA)",
+      "Free energy landscapes, essential dynamics via Principal Component Analysis (PCA)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 11: Bioinformatics and Computational Biology",
+    "subtopic": "Chemoinformatics, molecular docking, QSAR and in silico ADMET",
+    "key_concepts": [
+      "Chemical representation formats (SMILES, InChI, SDF) and structural fingerprint searching",
+      "Structure-based drug design: rigid/flexible receptor-ligand docking, scoring functions, binding $\\Delta G$",
+      "Ligand-based drug design: Pharmacophore hypothesis generation, 2D/3D QSAR, Hansch equation",
+      "Lipinski's Rule of 5, Veber's criteria, and in silico ADMET and toxicity filtering (PAINS)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Applied mathematics, differential equations and transport modeling in bioprocesses",
+    "key_concepts": [
+      "Ordinary differential equations (ODEs) for microbial growth, substrate decay, and product accumulation",
+      "Transport phenomena analogies: momentum transfer (viscosity), heat transfer (conduction), mass transfer (diffusion)",
+      "Dimensionless numbers: Reynolds ($Re$), Schmidt ($Sc$), Sherwood ($Sh$), Peclet ($Pe$)",
+      "Mass transfer equipment principles: packed columns, bubble columns, airlift loop bioreactors"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Macroscopic material and energy balances in bioreactor systems",
+    "key_concepts": [
+      "Steady-state and unsteady-state material balances with metabolic generation/consumption terms",
+      "Degrees of reduction ($\\gamma$) of carbon substrates and theoretical biomass yields",
+      "Respiratory Quotient ($RQ = \\text{moles CO}_2 / \\text{moles O}_2$) and carbon balance verification",
+      "Bioreactor heat balances: metabolic heat release ($Q_{gr} = \\frac{\\Delta H_c}{Y_{X/O_2}} \\mu X V$) and cooling duty"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Non-equilibrium thermodynamics of biological systems and metabolic oscillations",
+    "key_concepts": [
+      "Biological cells as open, non-equilibrium dissipative thermodynamic structures",
+      "Thermodynamic forces ($X_k$) and conjugate fluxes ($J_k$), linear phenomenological equations",
+      "Onsager reciprocal relations ($L_{ij} = L_{ji}$) and rate of entropy production ($\\sigma \\ge 0$)",
+      "Thermodynamic efficiency of oxidative phosphorylation and limit-cycle glycolytic oscillations"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Microbial growth kinetics, substrate inhibition and maintenance models",
+    "key_concepts": [
+      "Monod growth kinetics: specific growth rate $\\mu = \\mu_{\\max} \\frac{S}{K_s + S}$ and saturation constant $K_s$",
+      "Substrate inhibition kinetics: Haldane/Andrews equation ($\\mu = \\frac{\\mu_{\\max} S}{K_s + S + S^2/K_i}$)",
+      "Competitive, non-competitive, and uncompetitive end-product inhibition models",
+      "Maintenance energy coefficient $m_s$ and Pirt equation ($\\frac{1}{Y_{X/S}} = \\frac{1}{Y_{X/S}^{\\max}} + \\frac{m_s}{\\mu}$)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Bioreactor operation modes: batch, fed-batch, chemostat and continuous culture",
+    "key_concepts": [
+      "Batch culture growth kinetics: lag, exponential, deceleration phases, doubling time ($t_d = \\frac{\\ln 2}{\\mu}$)",
+      "Fed-batch cultures: quasi-steady state, constant feed, exponential feeding for constant $\\mu$",
+      "Continuous stirred-tank reactor (chemostat): dilution rate $D = F/V$, steady-state $\\bar{S}$ and $\\bar{X}$",
+      "Critical dilution rate ($D_{crit}$) and culture washout condition ($D \\ge \\mu_{\\max}$)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Oxygen mass transfer, dissolved oxygen dynamics and $k_L a$ determination",
+    "key_concepts": [
+      "Two-film theory, Oxygen Transfer Rate ($OTR = k_L a (C^* - C_L)$) and Oxygen Uptake Rate ($OUR = q_{O_2} X$)",
+      "Experimental $k_L a$ measurement: dynamic gassing-out, sodium sulfite oxidation, oxygen exhaust gas balance",
+      "Critical dissolved oxygen concentration ($C_{crit}$) and oxygen transfer limitation regimes",
+      "Factors governing $k_L a$: gas flow rate, superficial gas velocity ($v_s$), impeller speed ($N$), antifoams"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Bioreactor fluid rheology, aeration, agitation and power consumption",
+    "key_concepts": [
+      "Rheological models of fermentation broths: Newtonian, pseudoplastic (power law), Bingham plastic, Casson",
+      "Power number ($N_p = \\frac{P}{\\rho N^3 D_i^5}$) and impeller Reynolds number ($Re_i = \\frac{\\rho N D_i^2}{\\mu}$)",
+      "Gassed vs ungassed power draw: Michel-Miller correlation ($P_g = C (P_0^2 N D_i^3 / Q^{0.56})^{0.45}$)",
+      "Hydrodynamic shear and impeller geometries: Rushton radial turbine, pitched-blade axial turbine, marine propeller"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Thermal sterilization kinetics and air filtration systems",
+    "key_concepts": [
+      "Thermal destruction kinetics of bacterial endospores: decimal reduction time ($D$-value) and thermal resistance ($z$-value)",
+      "Sterilization Del factor ($\\nabla = \\ln(N_0/N_t) = \\int k(T) \\, dt$) and thermal death profile",
+      "Batch vs continuous high-temperature short-time (HTST) sterilization and nutrient preservation",
+      "Sterile air supply: depth filtration mechanisms (inertial impaction, interception, diffusion) and membrane cartridges"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Enzyme immobilization techniques and heterogeneous reaction kinetics",
+    "key_concepts": [
+      "Immobilization chemistries: covalent attachment (glutaraldehyde), physical adsorption, entrapment (alginate, polyacrylamide)",
+      "External mass transfer boundary layer resistance and observable Damköhler number ($Da$)",
+      "Internal intraparticle diffusion in porous biocatalysts: Thiele modulus ($\\Phi = R \\sqrt{V_{\\max} / (K_m D_{eff})}$)",
+      "Internal effectiveness factor ($\\eta$) and observed kinetics of immobilized enzyme reactors (packed bed, fluidized bed)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Biocatalysis in non-aqueous media and rational protein engineering",
+    "key_concepts": [
+      "Enzymatic catalysis in organic solvents, supercritical $CO_2$, and ionic liquids",
+      "Role of hydration in non-aqueous enzymology: essential water layer, thermodynamic water activity ($a_w$), solvent $\\log P$",
+      "Rational enzyme engineering: active site remodeling, catalytic triad repositioning, disulfide bond stabilization",
+      "Directed evolution strategies: error-prone PCR, DNA shuffling, staggered extension process (StEP), screening assays"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Industrial fermentations: organic acids, antibiotics, enzymes and biopolymers",
+    "key_concepts": [
+      "Citric acid fermentation by *Aspergillus niger*: regulation by trace metals ($Fe^{2+}, Mn^{2+}$), glycolysis overflow",
+      "Penicillin production by *Penicillium chrysogenum*: precursors, side-chain feeding, catabolite repression",
+      "Polyhydroxyalkanoates (PHA/PHB) biosynthesis under nutrient limitation and high carbon-to-nitrogen ratios",
+      "Industrial microbial enzyme production: alkaline proteases, $\\alpha$-amylases, cellulases, lipases"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Downstream processing: cell disruption and solid-liquid separation",
+    "key_concepts": [
+      "Solid-liquid separation: Rotary Vacuum Drum Filtration (RVDF), disc-stack and tubular bowl centrifuges (Stokes' law, $\\Sigma$ concept)",
+      "Mechanical cell disruption: high-pressure homogenizers, bead mills, and protein release kinetics ($R = R_m [1 - \\exp(-k N P^a)]$)",
+      "Non-mechanical cell lysis: osmotic shock, enzymatic lysis (lysozyme), detergent permeabilization",
+      "Flocculation, coagulation, and isoelectric precipitation of crude cellular debris"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Downstream processing: extraction, membrane filtration and chromatography",
+    "key_concepts": [
+      "Aqueous two-phase extraction (ATPE: PEG-salt, PEG-dextran) and partition coefficient ($K = C_{top}/C_{bottom}$)",
+      "Supercritical fluid extraction (SFE) with $CO_2$: critical temperature, pressure, and polarity modifiers",
+      "Cross-flow membrane filtration: microfiltration (MF), ultrafiltration (UF), concentration polarization, fouling resistance",
+      "Preparative chromatography: expanded bed adsorption (EBA), simulated moving bed (SMB), ion exchange, hydrophobic interaction"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 12: Biochemical Engineering and Industrial Biotechnology",
+    "subtopic": "Bioprocess scale-up, facility design and metabolic pathway engineering",
+    "key_concepts": [
+      "Bioreactor scale-up criteria: constant volumetric mass transfer ($k_L a$), constant power per unit volume ($P/V$), constant tip speed",
+      "Facility flowsheeting, clean-in-place (CIP), steam-in-place (SIP), aseptic validation",
+      "Techno-economic analysis of bioprocesses: CapEx, OpEx, product yield vs volumetric productivity trade-offs",
+      "Metabolic engineering: Flux Balance Analysis (FBA), stoichiometric matrices, cofactor balancing, synthetic gene circuits"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Recombinant DNA tools, expression vectors and modern assembly methods",
+    "key_concepts": [
+      "Modern molecular cloning: Gibson assembly, Golden Gate cloning (Type IIS enzymes), Ligation-Independent Cloning (LIC)",
+      "Recombinant expression systems: prokaryotic (T7 system) vs eukaryotic (Pichia pastoris AOX1, CHO cell lines)",
+      "Epitope and affinity tags: 6xHis, GST, MBP, FLAG; cleavage mechanisms (TEV protease, enterokinase)",
+      "Site-directed mutagenesis: QuikChange protocol, overlap extension PCR, alanine scanning mutagenesis"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Precision genome editing technologies (CRISPR-Cas, ZFNs, TALENs)",
+    "key_concepts": [
+      "Engineered nucleases: Zinc Finger Nucleases (ZFNs) and TALENs (repeat variable di-residue RVD code)",
+      "CRISPR-Cas systems: Cas9 (5'-NGG-3' PAM, blunt double-strand break) vs Cas12a/Cpf1 (5'-TTTV-3' PAM, staggered ends)",
+      "Repair pathways: Non-Homologous End Joining (NHEJ, indels) vs Homology-Directed Repair (HDR, precise integration)",
+      "Next-gen editing tools: Cytosine and Adenine Base Editors (CBE/ABE), Prime Editing (pegRNA, reverse transcriptase)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Next-generation sequencing and high-throughput functional genomics",
+    "key_concepts": [
+      "Sequencing technologies: Illumina sequencing-by-synthesis, PacBio Single Molecule Real-Time (SMRT), Oxford Nanopore",
+      "RNA-Seq methodology: cDNA library prep, rRNA depletion, read mapping, quantification (TPM, FPKM), differential expression",
+      "Epigenomic mapping: ChIP-Seq, ATAC-Seq (transposase accessible chromatin), CUT&RUN, bisulfite sequencing",
+      "Whole genome de novo assembly algorithms: Overlap-Layout-Consensus (OLC) vs de Bruijn graphs ($k$-mers)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Advanced vaccinology, mRNA vaccines and molecular diagnostics",
+    "key_concepts": [
+      "Vaccine platforms: live-attenuated, killed, recombinant subunit, virus-like particles (VLPs), DNA and mRNA vaccines",
+      "mRNA vaccine engineering: in vitro transcription, 5' capping, pseudouridine ($\\Psi$) incorporation, lipid nanoparticle (LNP) delivery",
+      "Adjuvants: alum, MF59, AS01, CpG oligonucleotides; mechanisms of pattern recognition receptor (PRR) stimulation",
+      "Molecular diagnostic assays: quantitative RT-qPCR (TaqMan vs SYBR Green), digital droplet PCR (ddPCR), LAMP"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Therapeutic antibodies, phage display and CAR-T cell immunotherapy",
+    "key_concepts": [
+      "Monoclonal antibody production: hybridoma technology, humanization of murine CDRs, fully human transgenic mouse platforms",
+      "In vitro display systems: filamentous phage display (M13 pIII fusion libraries), yeast display, ribosome display",
+      "Engineered antibody modalities: single-chain Fv (scFv), bispecific T-cell engagers (BiTEs), antibody-drug conjugates (ADCs)",
+      "Cellular immunotherapy: Chimeric Antigen Receptor (CAR) T-cell architecture, costimulatory domains (CD28, 4-1BB), immune checkpoint inhibitors"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Stem cell technology, iPSCs and 3D organoid disease models",
+    "key_concepts": [
+      "Induced pluripotent stem cells (iPSCs): Yamanaka reprogramming factors (Oct4, Sox2, Klf4, c-Myc) and pluripotency markers",
+      "Guided directed differentiation protocols using developmental morphogens (Wnt, BMP, FGF, retinoic acid)",
+      "3D self-organizing organoids: cerebral, intestinal, hepatic, and renal organoids in extracellular matrix (Matrigel)",
+      "Organoid applications in patient-derived disease modeling, host-pathogen interactions, and high-throughput drug screening"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Tissue engineering, biomaterials and diagnostic biosensors",
+    "key_concepts": [
+      "Biomaterial scaffolds: natural (collagen, alginate, hyaluronic acid) and synthetic (PLA, PGA, PLGA) polymers",
+      "Scaffold porosity, mechanical stiffness, biodegradation rates, and dynamic perfusion bioreactors",
+      "3D Bioprinting modalities: extrusion, droplet-based, laser-assisted printing; bioink formulation",
+      "Biosensor architectures: biological sensing elements (enzymes, aptamers), transducers (electrochemical, optical SPR, FET)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Animal transgenesis, cloning (SCNT) and germplasm conservation",
+    "key_concepts": [
+      "Animal transgenesis methods: pronuclear microinjection, retroviral transduction, embryonic stem cell homologous recombination",
+      "Somatic Cell Nuclear Transfer (SCNT): enucleation, electrofusion, artificial oocyte activation, epigenetic reprogramming barriers",
+      "Animal cloning applications: therapeutic recombinant protein production in milk (pharming), disease models",
+      "Cryobanking and germplasm preservation: gamete, embryo, and somatic cell vitrification protocols"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Marker-assisted plant breeding and agricultural genomics",
+    "key_concepts": [
+      "Molecular marker systems: RFLP, RAPD, AFLP, SSR, SNP genotyping (KASP, high-density arrays, GBS)",
+      "Linkage disequilibrium (LD) mapping and Genome-Wide Association Studies (GWAS) in crop species",
+      "Marker-Assisted Selection (MAS): foreground selection for target alleles and background selection for recurrent parent genome",
+      "Marker-Assisted Backcrossing (MABC), gene pyramiding for multiple disease resistances, genomic selection (GS) models"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Plant genetic transformation, trait engineering and molecular farming",
+    "key_concepts": [
+      "*Agrobacterium tumefaciens* T-DNA transfer mechanism: vir gene cascade, T-strand escort, nuclear targeting, random integration",
+      "Direct gene transfer methods: biolistic particle gun, protoplast electroporation, PEG-mediated uptake",
+      "Transgenic crop traits: insect resistance (Bt $\\delta$-endotoxins Cry proteins), herbicide resistance (glyphosate EPSPS, glufosinate PAT)",
+      "Plastid transformation (transplastomics): maternal inheritance, high expression levels, absence of epigenetic silencing"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Plant cell culture, in vitro organogenesis and secondary metabolites",
+    "key_concepts": [
+      "Cellular totipotency, dedifferentiation, and callus induction; organogenesis control via auxin:cytokinin ratio",
+      "Somatic embryogenesis and artificial seed (synseed) production via calcium alginate encapsulation",
+      "Haploid and doubled-haploid technology: anther/microspore culture, chromosome doubling via colchicine",
+      "Somaclonal variation and suspension culture elicitation of secondary metabolites in plant bioreactors"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Marine biotechnology, marine pharmacology and marine biofilm ecology",
+    "key_concepts": [
+      "Marine biodiversity and extremophile physiological adaptations: piezophiles, psychrophiles, halophiles",
+      "Marine natural products and pharmacology: ziconotide ($ω$-conotoxin), trabectedin (ET-743), bryostatins, cytarabine",
+      "Marine biofouling: primary conditioning film, bacterial biofilm settlement, macro-fouling invertebrates",
+      "Environment-friendly marine antifouling compounds and marine microbial enzymes (agarases, carrageenases)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Environmental biotechnology: biological wastewater treatment and nutrient removal",
+    "key_concepts": [
+      "Wastewater quality indicators: Biochemical Oxygen Demand (BOD), Chemical Oxygen Demand (COD), TOC, TSS",
+      "Suspended growth systems: Activated Sludge Process (ASP), F/M ratio, mean cell residence time ($\\theta_c$), sludge volume index (SVI)",
+      "Attached growth systems: trickling filters, rotating biological contactors (RBC), moving bed biofilm reactors (MBBR)",
+      "Biological Nutrient Removal (BNR): nitrification-denitrification sequence and anaerobic ammonium oxidation (Anammox)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 13: Advances in Biotechnology",
+    "subtopic": "Bioremediation, phytoremediation and bioenergy circular economy",
+    "key_concepts": [
+      "Bioremediation strategies: in situ (bioventing, biosparging, bioaugmentation) vs ex situ (biopiles, windrows)",
+      "Microbial degradation pathways of recalcitrant xenobiotics (PAHs, polychlorinated biphenyls, organophosphates)",
+      "Phytoremediation mechanisms: phytoextraction, phytostabilization, rhizofiltration, hyperaccumulator plants",
+      "Bioenergy generation: cellulosic ethanol, microalgae biodiesel, biogas production, Microbial Fuel Cells (MFC)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Bacterial growth kinetics and mathematical modeling of population growth",
+    "key_concepts": [
+      "Phases of bacterial batch growth curve: lag, exponential, deceleration, stationary, and decline phases",
+      "Kinetic equations: specific growth rate $\\mu = \\frac{\\ln(X_2/X_1)}{t_2 - t_1}$, generation/doubling time $g = \\frac{\\ln 2}{\\mu}$",
+      "Diauxic growth kinetics, carbon catabolite repression (CCR), and cAMP-CRP regulatory circuitry",
+      "Measurement of bacterial growth: direct cell counts, viable CFU plating, spectrophotometric optical density (OD600)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Bacterial cell division machinery, divisome assembly and spatial regulation",
+    "key_concepts": [
+      "Tubulin homolog FtsZ GTPase polymerization, protofilaments, and Z-ring constriction forces",
+      "Divisome core components: FtsA, ZipA membrane tethers, FtsQ, FtsL, FtsB, and peptidoglycan synthase FtsI/PBP3",
+      "Spatial positioning by the MinCDE oscillation system: pole-to-pole dynamics inhibiting FtsZ at cell poles",
+      "Nucleoid occlusion mechanism: SlmA (in *E. coli*) and Noc (in *B. subtilis*) preventing division over unsegregated chromosomes"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Bacterial stress responses and stringent control",
+    "key_concepts": [
+      "The stringent response: uncharged tRNA sensing, RelA/SpoT synthase activity, alarmone (p)ppGpp synthesis",
+      "Transcriptional reprogramming by (p)ppGpp and DksA: downregulation of rRNA/tRNA vs activation of amino acid biosynthesis",
+      "Alternative sigma factors: $\\sigma^S$ (RpoS) general stress response, $\\sigma^{32}$ (RpoH) heat shock response, $\\sigma^E$ envelope stress",
+      "Bacterial SOS response: RecA filamentation on ssDNA, LexA repressor autocleavage, activation of error-prone polymerases"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Antimicrobial resistance (AMR): enzymatic inactivation and drug breakdown",
+    "key_concepts": [
+      "$\\beta$-lactamases: Class A (penicillinases), Class B (metallo-$\\beta$-lactamases, NDM-1), Class C (AmpC), Class D (OXA)",
+      "Extended-Spectrum $\\beta$-Lactamases (ESBLs) and carbapenemases conferring resistance to third-generation cephalosporins",
+      "Aminoglycoside-modifying enzymes: acetyltransferases (AAC), phosphotransferases (APH), nucleotidyltransferases (ANT)",
+      "Enzymatic chloramphenicol resistance via chloramphenicol acetyltransferase (CAT) and macrolide esterases"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Antimicrobial resistance (AMR): target alteration and protection mechanisms",
+    "key_concepts": [
+      "Methicillin resistance in *Staphylococcus aureus* (MRSA): mecA gene encoding low-affinity PBP2a",
+      "Vancomycin resistance in enterococci (VRE): vanA operon substituting D-Ala-D-Ala with D-Ala-D-Lac in cell wall",
+      "Fluoroquinolone resistance via DNA gyrase (gyrA) and topoisomerase IV (parC) quinolone resistance-determining regions (QRDR)",
+      "Macrolide and linezolid resistance through 23S rRNA methylation by Erm methyltransferases"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Antimicrobial resistance (AMR): multidrug efflux pumps and membrane permeability",
+    "key_concepts": [
+      "Major classes of bacterial efflux systems: RND, MFS, ABC, SMR, and MATE transporters",
+      "Resistance-Nodulation-Division (RND) tripartite complexes: AcrAB-TolC (*E. coli*) and MexAB-OprM (*P. aeruginosa*)",
+      "Outer membrane permeability alterations: porin loss (OmpF, OmpC mutations) restricting antibiotic penetration",
+      "Bacterial persistence vs resistance: metabolic dormancy, toxin-antitoxin systems (HipA/HipB), biofilm barrier tolerance"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Bacterial cell wall biosynthesis and target pathways of antibiotics",
+    "key_concepts": [
+      "Cytoplasmic stage of peptidoglycan synthesis: UDP-MurNAc-pentapeptide assembly and Fosfomycin/D-cycloserine targets",
+      "Membrane stage: Lipid I and Lipid II biosynthesis via MraY and MurG, bactoprenol carrier flipping and Bacitracin inhibition",
+      "Periplasmic transglycosylation and transpeptidation: high-molecular-weight PBPs and penicillin inhibition mechanism",
+      "Gram-negative outer membrane LPS biogenesis (Lpt system) and Polymyxin/Colistin disruption mechanisms"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Programmed cell death: intrinsic and extrinsic apoptotic pathways",
+    "key_concepts": [
+      "Intrinsic (mitochondrial) pathway: Bax/Bak oligomerization, MOMP, cytochrome c release, Apaf-1 apoptosome assembly",
+      "Extrinsic (death receptor) pathway: FasL/TNF-$\\alpha$ binding, FADD recruitment, DISC complex, caspase-8 activation",
+      "Bcl-2 superfamily balance: anti-apoptotic (Bcl-2, Bcl-xL, Mcl-1) vs pro-apoptotic BH3-only proteins (Bid, Bim, Puma)",
+      "Executioner caspases (caspase-3, -6, -7) cleavage of ICAD, PARP, lamin, causing DNA fragmentation and apoptotic bodies"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Regulated non-apoptotic cell death: necroptosis, pyroptosis and ferroptosis",
+    "key_concepts": [
+      "Necroptosis pathway: RIPK1 and RIPK3 kinase activation, necrosome formation, MLKL phosphorylation and membrane pore lysis",
+      "Pyroptosis pathway: canonical (caspase-1) and non-canonical (caspase-4/5/11) activation, Gasdermin-D (GSDMD) cleavage and IL-1$\\beta$ release",
+      "Ferroptosis mechanism: iron-dependent lipid peroxidation, System $X_c^-$ cystine/glutamate antiporter, GPX4 inactivation",
+      "Morphological and biochemical distinctions between apoptosis (immunologically silent) and lytic necrotic cell death"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 2: Cellular Organization",
+    "subtopic": "Macroautophagy: molecular machinery, regulation and organelle clearance",
+    "key_concepts": [
+      "Autophagy initiation: nutrient sensing by mTORC1 (inhibitor) and AMPK (activator), ULK1/Atg1 complex activation",
+      "Phagophore nucleation and expansion: Class III PI3K (Vps34-Beclin-1) complex, PI3P generation, WIPI recruitment",
+      "Ubiquitin-like conjugation cascades: Atg12-Atg5-Atg16L1 system and LC3-I to phosphatidylethanolamine-conjugated LC3-II (Atg8)",
+      "Autophagosome maturation, SNARE-mediated fusion with lysosomes (autolysosome), and selective autophagy (mitophagy, p62/SQSTM1)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Concept of metaorganisms, holobiont biology and host-microbiome co-evolution",
+    "key_concepts": [
+      "Definition of metaorganism and holobiont: host multicellular organism plus its symbiotic microbial communities",
+      "The hologenome theory of evolution: holobiont as a unit of selection, genetic variation via microbiome plasticity",
+      "Symbiosis modalities: mutualism, commensalism, pathobionts; colonization resistance against opportunistic pathogens",
+      "Co-speciation and phylosymbiosis: congruence between host phylogenetic trees and microbiome community dendrograms"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Mammalian gut microbiome composition, biogeography and profiling methods",
+    "key_concepts": [
+      "Dominant taxonomic phyla in human gut: Bacillota (Firmicutes), Bacteroidota (Bacteroidetes), Actinomycetota, Pseudomonadota",
+      "Spatial biogeography along the gastrointestinal tract: stomach, small intestine (duodenum, ileum) to colon gradient",
+      "Molecular profiling approaches: 16S rRNA gene amplicon sequencing (hypervariable regions V3-V4) vs shotgun metagenomics",
+      "Diversity metrics: alpha diversity (Shannon, Simpson, Chao1) and beta diversity (Bray-Curtis dissimilarity, UniFrac)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Germ-free and gnotobiotic animal models in physiological research",
+    "key_concepts": [
+      "Generation and maintenance of germ-free (axenic) rodents in sterile isolator facilities",
+      "Physiological hallmarks of germ-free animals: cecal enlargement, hypoplastic Peyer's patches, altered cardiac output and metabolic rate",
+      "Gnotobiotic colonization: defined microbial consortia (e.g., Altered Schaedler Flora ASF) and humanized microbiota mice",
+      "Fecal Microbiota Transplantation (FMT) protocols to establish causal relationships in host disease phenotypes"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Microbial metabolites as physiological signaling molecules",
+    "key_concepts": [
+      "Short-Chain Fatty Acids (SCFAs): acetate, propionate, butyrate fermentation from non-digestible dietary polysaccharides",
+      "SCFA GPCR signaling: FFAR2 (GPR43) and FFAR3 (GPR41) in colonocytes, immune cells, and endocrine cells",
+      "Epigenetic regulation: Butyrate and propionate acting as histone deacetylase (HDAC) inhibitors promoting Treg differentiation",
+      "Bile acid biotransformation: primary bile acids to secondary bile acids (deoxycholic, lithocholic acids) activating FXR and TGR5"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "The gut-brain axis: neuroendocrine, immune and vagal pathways",
+    "key_concepts": [
+      "Bidirectional communication routes: vagus nerve afferents, systemic neuroendocrine circulation, immune mediators",
+      "Enteric Nervous System (ENS) structure: myenteric (Auerbach) and submucosal (Meissner) plexuses",
+      "Microbial regulation of neurotransmitter production: gut enterochromaffin cell synthesis of serotonin (5-HT), GABA",
+      "Microbiome influence on microglial maturation, blood-brain barrier (BBB) integrity, and neuroinflammation"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Gut barrier integrity, dysbiosis and systemic inflammation",
+    "key_concepts": [
+      "Intestinal mucosal barrier components: mucin layers (MUC2), antimicrobial peptides (defensins, RegIII$\\gamma$), secretory IgA",
+      "Tight junction complex architecture: occludin, claudins, zonula occludens (ZO-1), and regulation by zonulin",
+      "Dysbiosis definition: loss of diversity, loss of beneficial taxa, pathobiont blooming (e.g., Enterobacteriaceae)",
+      "Metabolic endotoxemia: LPS translocation through compromised gut barrier triggering systemic TLR4-NF-$\\kappa$B inflammation"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Interorgan communication: the adipose-liver-skeletal muscle axis",
+    "key_concepts": [
+      "White adipose tissue as an active endocrine organ: secretion of adiponectin, leptin, resistin, and inflammatory cytokines (TNF-$\\alpha$, IL-6)",
+      "Liver-muscle metabolic cross-talk: Cori cycle, glucose-alanine cycle, and regulation of hepatic gluconeogenesis",
+      "Myokines produced by contracting skeletal muscle: Irisin, IL-6, myostatin; effects on browning of white adipose tissue",
+      "Hepatokines (Fetuin-A, FGF21) modulating peripheral insulin sensitivity and lipid storage"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Central and peripheral regulation of appetite and energy expenditure",
+    "key_concepts": [
+      "Hypothalamic arcuate nucleus (ARC) neuronal circuitry: orexigenic (NPY/AgRP) vs anorexigenic (POMC/CART) neurons",
+      "Leptin receptor signaling (JAK2-STAT3) in hypothalamus: suppression of appetite and stimulation of energy expenditure",
+      "Gut satiety peptides: Ghrelin (stomach hunger signal), Cholecystokinin (CCK), Peptide YY (PYY), Glucagon-like peptide-1 (GLP-1)",
+      "Melanocortin system: $\\alpha$-MSH agonism and AgRP inverse agonism at melanocortin 4 receptors (MC4R)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Pathophysiology of insulin resistance and metabolic syndrome",
+    "key_concepts": [
+      "Molecular insulin signaling: IRS1/2 phosphorylation, PI3K-Akt pathway, and GLUT4 glucose transporter translocation",
+      "Mechanisms of insulin resistance: serine phosphorylation of IRS1 (by JNK, IKK$\\beta$, PKC$\\theta$), lipotoxicity from diacylglycerols (DAG) and ceramides",
+      "Diagnostic criteria for Metabolic Syndrome: central obesity, elevated triglycerides, reduced HDL, hypertension, fasting hyperglycemia",
+      "Non-Alcoholic Fatty Liver Disease (NAFLD) progression: simple steatosis to Non-Alcoholic Steatohepatitis (NASH) and cirrhosis"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 7: System Physiology – Animal",
+    "subtopic": "Adipose tissue remodeling, thermogenesis and metabolic health",
+    "key_concepts": [
+      "Adipose tissue types: white adipose tissue (WAT, energy storage) vs brown adipose tissue (BAT, non-shivering thermogenesis)",
+      "Uncoupling protein 1 (UCP1) mechanism in brown adipocyte mitochondria: dissipating proton gradient as heat",
+      "Browning/beiging of white adipose tissue: beige/brite adipocyte induction by $\\beta_3$-adrenergic stimulation and cold exposure",
+      "Adipocyte hypertrophy vs hyperplasia, hypoxia in expanding adipose tissue, crown-like macrophage infiltration"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "Anthropogenic land-use change, habitat fragmentation and landscape connectivity",
+    "key_concepts": [
+      "Landscape ecology metrics: patch size, patch shape complexity, core area, isolation distance, edge-to-area ratio",
+      "Ecological edge effects: microclimate alterations (temperature, wind, light penetration), predator encroachment, nest parasitism",
+      "Structural vs functional landscape connectivity, wildlife corridors, stepping-stone habitats, percolation theory",
+      "Relaxation fauna and species-area relationship ($S = c A^z$) applied to fragmented terrestrial habitat islands"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "Climate change ecology, phenological shifts and species range contractions",
+    "key_concepts": [
+      "Ecological fingerprints of climate change: poleward and elevational species range contractions",
+      "Phenological mismatches / trophic asynchrony (e.g., mismatch between peak caterpillar emergence and passerine nesting)",
+      "Marine climate impacts: ocean warming, thermal stratification, ocean acidification (pH reduction, aragonite undersaturation)",
+      "Thermal tolerance performance curves: critical thermal limits ($CT_{\\max}$, $CT_{\\min}$), thermal safety margins"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "Ecotoxicology, environmental pollutants and bioaccumulation dynamics",
+    "key_concepts": [
+      "Bioconcentration (BCF), bioaccumulation (BAF), and biomagnification across trophic food web levels",
+      "Persistent Organic Pollutants (POPs: DDT, PCBs, dioxins) and organometallics (methylmercury)",
+      "Endocrine-Disrupting Chemicals (EDCs: bisphenols, phthalates) and reproductive impairment in wildlife",
+      "Emerging environmental contaminants: microplastics, nanoplastics, per- and polyfluoroalkyl substances (PFAS)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "Biological invasion ecology and invasive species impact",
+    "key_concepts": [
+      "Stages of biological invasion: transport, introduction, establishment, spread, integration",
+      "Hypotheses explaining invasion success: enemy release hypothesis, novel weapons hypothesis, fluctuating resource availability",
+      "Life history traits characteristic of successful invasive alien species: high fecundity, wide ecological tolerance, rapid growth",
+      "Ecological impacts of invasive species: displacement of native fauna/flora, alteration of fire regimes, trophic cascade disruption"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "The Biological Diversity Act 2002 of India: governance and institutions",
+    "key_concepts": [
+      "Three-tier administrative infrastructure: National Biodiversity Authority (NBA), State Biodiversity Boards (SBB), Biodiversity Management Committees (BMC)",
+      "Mandate and functions of NBA: approvals for foreign access to biological resources and commercial IP patent filings",
+      "Declaration and protection of Biodiversity Heritage Sites (BHS) under Section 37 of the Act",
+      "Offenses, penalties, and exemptions under the Biological Diversity Act 2002 and Biological Diversity (Amendment) Act"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "People's Biodiversity Registers (PBR) and Access and Benefit Sharing (ABS)",
+    "key_concepts": [
+      "Preparation, verification, and digitization of People's Biodiversity Registers (PBR) at local panchayat levels",
+      "Documentation of traditional ecological knowledge (TEK), local agro-biodiversity, and medicinal bioresources",
+      "Access and Benefit Sharing (ABS) mechanisms under the Nagoya Protocol framework and NBA guidelines",
+      "Fair and equitable sharing of monetary and non-monetary benefits arising from bioresource utilization"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "Agrobiodiversity conservation, crop wild relatives and on-farm preservation",
+    "key_concepts": [
+      "Agrobiodiversity components: crop genetic diversity, livestock breeds, beneficial soil microbiota, pollinator assemblages",
+      "Crop Wild Relatives (CWR) as reservoirs of abiotic stress and disease resistance alleles",
+      "Genetic erosion causes: replacement of landraces by monoculture high-yielding varieties, agricultural intensification",
+      "In situ on-farm conservation strategies and participatory plant breeding (PPB) with local farming communities"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "International treaties: PGRFA, CBD and global genetic resource governance",
+    "key_concepts": [
+      "International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA, FAO Seed Treaty)",
+      "The Multilateral System (MLS) of access and benefit sharing covering Annex 1 food and forage crops",
+      "Standard Material Transfer Agreement (SMTA) terms and global Benefit-sharing Fund operation",
+      "Convention on Biological Diversity (CBD) principles: national sovereignty over biological resources vs common heritage"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "The PPVFR Act 2001: farmers' rights, breeders' rights and DUS testing",
+    "key_concepts": [
+      "Protection of Plant Varieties and Farmers' Rights (PPVFR) Act 2001 of India: unique dual protection model",
+      "Criteria for plant variety registration: Distinctiveness, Uniformity, and Stability (DUS testing)",
+      "Categories of registrable varieties: new varieties, extant varieties, essentially derived varieties (EDV), farmers' varieties",
+      "Farmer rights under PPVFR: right to save, use, sow, resow, exchange, and sell farm seed; National Gene Fund"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 10: Ecology and Behavioral Biology",
+    "subtopic": "Ex situ conservation strategies: seed gene banks and cryopreservation",
+    "key_concepts": [
+      "Physiological classification of seeds: orthodox (desiccation-tolerant), intermediate, and recalcitrant (desiccation-sensitive)",
+      "Optimal storage conditions for orthodox seed banks: drying to 3–7% moisture content and cooling to $-18^\\circ\\text{C}$ to $-20^\\circ\\text{C}$",
+      "Cryopreservation protocols for clonal crops and recalcitrant seeds in liquid nitrogen ($-196^\\circ\\text{C}$): vitrification, encapsulation-dehydration",
+      "Global germplasm repositories: National Bureau of Plant Genetic Resources (NBPGR, India) and Svalbard Global Seed Vault"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Single-cell RNA sequencing (scRNA-seq) technologies and chemistry",
+    "key_concepts": [
+      "Single-cell isolation platforms: microfluidic droplet encapsulation (10x Genomics Chromium, inDrop), microwells (Seq-Well), FACS sorting",
+      "Barcoding chemistry: Cell Barcodes (CBC) for cell deconvolution and Unique Molecular Identifiers (UMI) to eliminate PCR amplification bias",
+      "Plate-based full-length transcript sequencing (Smart-seq2/3) vs droplet-based 3'/5' end counting",
+      "Quality metrics: sequencing depth, fraction of mitochondrial reads, doublets detection (Scrublet, DoubletFinder)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "scRNA-seq computational data analysis and cell clustering",
+    "key_concepts": [
+      "Data normalization methods: LogNormalize, SCTransform (regularized negative binomial regression), variance stabilizing transformation",
+      "Feature selection of Highly Variable Genes (HVGs) and dimensionality reduction via Principal Component Analysis (PCA)",
+      "Non-linear visualization algorithms: t-Distributed Stochastic Neighbor Embedding (t-SNE) vs Uniform Manifold Approximation and Projection (UMAP)",
+      "Graph-based clustering (Louvain, Leiden algorithms) and cell type marker identification via differential expression"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Single-cell epigenomics and multimodal single-cell omics",
+    "key_concepts": [
+      "Single-cell ATAC-seq (scATAC-seq): hyperactive Tn5 transposase tagging accessible open chromatin in single nuclei",
+      "CITE-seq (Cellular Indexing of Transcriptomes and Epitopes): oligo-conjugated antibodies for concurrent cell surface proteomics and RNA-seq",
+      "Single-cell DNA methylation sequencing (scBS-seq) and single-cell whole-genome sequencing (scWGS)",
+      "Multimodal integration algorithms: Seurat Weighted Nearest Neighbor (WNN) analysis across paired transcriptomic-epigenomic data"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Pseudotime lineage trajectory and RNA velocity analysis",
+    "key_concepts": [
+      "Lineage reconstruction and developmental trajectory inference: minimum spanning trees and principal curves (Monocle, Slingshot)",
+      "RNA velocity principle: measuring ratio of unspliced (nascent) to spliced (mature) pre-mRNAs to predict future cellular state",
+      "Dynamical vs steady-state RNA velocity models (velocyto, scVelo)",
+      "Cell fate transition probability, branching points, and terminal differentiation attractor identification"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Spatial transcriptomics and in situ spatial sequencing methods",
+    "key_concepts": [
+      "Array-based spatial capture: spatially barcoded capture spots (10x Visium, Slide-seq, HDST) and histological image registration",
+      "In situ hybridization-based imaging methods: Multiplexed Error-Robust FISH (MERFISH) and sequential FISH (seqFISH)",
+      "In situ sequencing approaches (ISS, FISSEQ) and subcellular spatial resolution limits",
+      "Computational deconvolution of spatial capture spots using single-cell reference atlases (RCTD, Cell2location)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Metabolomics: analytical instrumentation and targeted profiling",
+    "key_concepts": [
+      "Metabolite extraction workflows: quench protocols, biphasic liquid-liquid extraction (Bligh-Dyer, Matyash)",
+      "Targeted metabolomics by Liquid Chromatography-Tandem Mass Spectrometry (LC-MS/MS) using Multiple Reaction Monitoring (MRM)",
+      "Gas Chromatography-Mass Spectrometry (GC-MS): chemical derivatization (methoximation, silylation with MSTFA/BSTFA) of non-volatile metabolites",
+      "Ion sources and analyzers: Electrospray Ionization (ESI), Atmospheric Pressure Chemical Ionization (APCI), triple quadrupole (QqQ)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Untargeted metabolomics, high-resolution MS and fluxomics",
+    "key_concepts": [
+      "High-Resolution Mass Spectrometry (HRMS) platforms: Q-TOF and Orbitrap analyzers providing sub-ppm mass accuracy",
+      "Metabolite annotation confidence levels (MSI guidelines Levels 1–4): accurate $m/z$, isotopic pattern, MS/MS fragmentation matching",
+      "Spectral databases and bioinformatic pipelines: METLIN, HMDB, MassBank, GNPS molecular networking, XCMS",
+      "Stable isotope-assisted metabolomics and $^{13}\\text{C}$-Metabolic Flux Analysis ($^{13}\\text{C}$-MFA) to quantify intracellular pathway fluxes"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Intellectual property rights (IPR) and biological patenting",
+    "key_concepts": [
+      "Forms of Intellectual Property: Patents, Trademarks, Copyrights, Trade Secrets, Plant Variety Protection, Geographical Indications (GI)",
+      "Criteria for patentability of biological inventions: Novelty (global prior art), Inventive step (non-obviousness), Industrial applicability",
+      "Patentable vs non-patentable subject matter in biotechnology: Section 3 of Indian Patents Act (Section 3(c), 3(d), 3(h), 3(i), 3(j))",
+      "Deposit of biological materials under the Budapest Treaty at International Depository Authorities (IDA)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Patent specifications, patent databases and international filing procedures",
+    "key_concepts": [
+      "Anatomy of a patent document: provisional vs complete specification, drawings, independent and dependent claims",
+      "International patent filing routes: Paris Convention (12-month priority window) vs Patent Cooperation Treaty (PCT, 30/31-month national phase)",
+      "Patent search databases and prior art searching: USPTO, EPO Espacenet, WIPO Patentscope, InPASS (Indian Patent Office)",
+      "Patent claim interpretation, Freedom to Operate (FTO) analysis, and patent infringement types (literal vs doctrine of equivalents)"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  },
+  {
+    "syllabus_unit": "Unit 14: Methods in Biology",
+    "subtopic": "Biosafety levels, bioethics, animal welfare and AI ethics in research",
+    "key_concepts": [
+      "Biosafety Levels: BSL-1, BSL-2, BSL-3, and BSL-4 facility engineering, containment, and PPE criteria for biohazards",
+      "Recombinant DNA safety regulatory bodies in India: IBSC, Review Committee on Genetic Manipulation (RCGM), Genetic Engineering Appraisal Committee (GEAC)",
+      "Bioethics and animal welfare in animal research: CPCSEA/CCSEA guidelines, 3Rs principle (Replacement, Reduction, Refinement), IAEC approval",
+      "Research ethics and AI in scientific publishing: publication integrity, Committee on Publication Ethics (COPE), plagiarism detection, responsible AI attribution"
+    ],
+    "target_part_b": 10,
+    "target_part_c": 15
+  }
+]

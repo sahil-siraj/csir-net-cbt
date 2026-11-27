@@ -1,0 +1,38 @@
+# Python / Virtual Environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Secrets & Local Databases
+.env
+.env.*
+!.env.example
+.env.turso
+*.db
+*.db-wal
+*.db-shm
+*.db.bak
+*.bak
+csir_net.db*
+
+# Reports
+*_report.json
+
+# Frontend & Build Artifacts
+frontend/node_modules/
+frontend/dist/
+
+# Data / Scraping / Pipeline Assets
+raw pyqs/
+*_images/
+*.pdf
+scripts/
+
+# Git & IDE
+.git/
+.gitignore
+.agent/
+.vscode/
